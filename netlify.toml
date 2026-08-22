@@ -1,0 +1,20 @@
+# A nevjegy statikus oldal: nincs build, a mappa tartalma megy ki.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/fontok/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/kepek/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
