@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Callboard - produkciós rendszer éles használatban</title>
+<meta name="description" content="A Callboard produkciós rendszer esettanulmánya: próbatábla, diszpó, kiküldés és költségkeret egy közös háttéren, napi használatban.">
+<link rel="canonical" href="https://herczegx.com/callboard.html">
+<link rel="alternate" hreflang="hu" href="https://herczegx.com/callboard.html">
+<link rel="alternate" hreflang="en" href="https://herczegx.com/en/callboard.html">
+<meta property="og:title" content="Callboard - produkciós rendszer éles használatban">
+<meta property="og:description" content="Próbatábla, diszpó, kiküldés és költségkeret egy közös háttéren.">
+<meta property="og:type" content="article">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="stilus.css">
+</head>
+<body>
+
+<header class="fej">
+  <div class="fej-belso">
+    <a class="nevjel" href="index.html">Herczeg András</a>
+    <nav class="menu">
+      <a href="index.html#rolam">Rólam</a>
+      <a href="index.html#szakteruletek">Szakterületek</a>
+      <a class="itt" href="callboard.html">Callboard</a>
+      <a href="index.html#kapcsolat">Kapcsolat</a>
+      <span class="nyelv"><a href="en/callboard.html" hreflang="en">EN</a></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="nyito">
+  <div class="sav">
+    <h1>Callboard</h1>
+    <p class="alcim">Produkciós rendszer, éles használatban</p>
+    <p class="vezeto">Amit nem találtam meg készen, megépítettem. Ma ez viszi a színház napi üzemét.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sav">
+    <h2>A probléma</h2>
+    <div class="szoveg">
+      <p>A produkciós tervezés Excelben és e-mailben élt. A próbatábla kiment levélben, és onnantól senki nem tudta, ki nyitotta meg, ki látta a módosítást, melyik változat érvényes. Egy elmaradt diszpó nem adminisztrációs bosszúság: az egy stábtag, aki nem jön be dolgozni.</p>
+    </div>
+
+    <h2 style="margin-top:44px">A megoldás</h2>
+    <div class="szoveg">
+      <p>Először Excelben modelleztem le a rendszert, mert azzal könnyebb volt megmutatni, mit akarok, mint elmagyarázni. Abból lett a webes változat, ma pedig három alkalmazás egy közös háttéren.</p>
+    </div>
+
+    <div class="tablakeret" style="margin:22px 0 26px">
+      <table class="tabla">
+        <thead><tr><th>alkalmazás</th><th>mire jó</th></tr></thead>
+        <tbody>
+          <tr><td>Callboard</td><td>produkciók, próbatábla, diszpó, kiküldés, költségkeret</td></tr>
+          <tr><td>Callwork</td><td>a műszaki tárak heti beosztása és munkaidő-nyilvántartása</td></tr>
+          <tr><td>CallMemo</td><td>vezetői teendők, döntések, éves terv</td></tr>
+          <tr><td>néző oldal</td><td>belépés nélküli, megosztható próbatábla a stábnak</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="szoveg">
+      <p>A stábtag semmit nem telepít. A levélben kapott személyes linkje megnyílik a telefonján, és ha kiteszi a kezdőképernyőre, onnantól úgy viselkedik, mint egy alkalmazás.</p>
+    </div>
+
+    <figure>
+      <img src="kepek/callboard_01_produkciok.webp" alt="Produkciós áttekintő: három bemutató, mérföldkövek és idővonal" width="1600" height="1002" loading="lazy">
+      <figcaption>Produkciós áttekintő a demó példányról. Kitalált produkciók, kitalált nevek.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sav">
+    <h2>Mit tud, amit egy táblázat nem</h2>
+    <div class="szoveg">
+      <p><strong>A kiküldés igazat mond.</strong> Csak a tényleges levélküldés után jelöl bármit kiküldöttnek. Nincs olyan, hogy a rendszer szerint megkapta, a valóságban nem.</p>
+      <p><strong>Három kérdés, három válasz.</strong> Mikor és melyik napra ment ki. Változott-e azóta. És pontosan mi változott, mezőnként, miből mi lett.</p>
+      <p><strong>Aki nem nyitotta meg, az látszik.</strong> Névvel. Innen a titkárság telefonál. A gép nem minősít: hogy mi érdemi változás, azt ember dönti el.</p>
+      <p><strong>Minden kiküldés archívumba megy.</strong> PDF, a kiadó nevével és a kiküldés idejével.</p>
+      <p><strong>Értesítés a telefonra, tartalom nélkül.</strong> Ami a próbatáblán van, az nem megy át idegen szolgáltatók szerverein.</p>
+    </div>
+
+    <figure>
+      <img src="kepek/callboard_02_napi_tabla.webp" alt="A napi próbatábla egy napja: helyszín, idő, hívási kör, bútor és ruha" width="1600" height="507" loading="lazy">
+      <figcaption>Napi próbatábla. A hívási idő névsorral, a bútor és a ruha a napi kiadvány része.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="kepek/callboard_04_koltsegkeret.webp" alt="Költségkeret-figyelő: keret, elköltve, maradék, felhasználás százalékban" width="1600" height="191" loading="lazy">
+      <figcaption>Költségkeret-figyelő az évadra. Kitalált összegek.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="kepek/callboard_05_koltseg_produkcionkent.webp" alt="Költségek produkciónként: tervezett, tény, eltérés és százalék" width="1600" height="262" loading="lazy">
+      <figcaption>Produkciónkénti bontás: terv, tény, eltérés. Ami a keretből megmarad, az látszik.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sav">
+    <h2>Nem egy színházra szabva</h2>
+    <div class="szoveg">
+      <p>A helyszínek, a szerepkörök, a névtár, a műszaki tárak és a próbatípusok beállítások, nem beégetett értékek. Ami ma egy házhoz kötött, az az arculat: a név és a logó a kódban áll, tehát másik társulatnál ezt kell kicserélni, nem a logikát átírni. A képeken ezért nincs színházi név és logó: a rendszer működése bármelyik repertoárszínházban ugyanez.</p>
+    </div>
+
+    <h2 style="margin-top:44px">Számok</h2>
+    <div class="tenyek" style="margin:6px 0 24px">
+      <div class="teny"><span class="szam">89</span><span class="mi">tesztfájl</span></div>
+      <div class="teny"><span class="szam">3314</span><span class="mi">automatikus ellenőrzés</span></div>
+      <div class="teny"><span class="szam">0</span><span class="mi">hiba</span></div>
+    </div>
+    <div class="szoveg">
+      <p>A tesztek a valódi alkalmazást futtatják, nem kimockolt egységeket. Keretrendszer nélküli JavaScript, felhő-háttér, telepítés nélküli, platformfüggetlen mobilhasználat.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sav">
+    <h2>Amit a fejlesztés tanított</h2>
+    <div class="szoveg">
+      <p><strong>A csatorna mindig esetleges lesz.</strong> Az e-mail elhal, az értesítés kézbesítése nem garantált, a telefon néma. Nem jobb csatornát kell keresni, hanem azt elérni, hogy a hiány időben látszódjon. A végső csatorna az ember: a titkárság felveszi a telefont.</p>
+      <p><strong>Aki hibát jelez, annak igaza van.</strong> Az első éles próbán négy dolgot jeleztem vissza a fejlesztésnek. Mind a négy valós volt, és a legsúlyosabb egy csendes adatvesztés, nem felületi hiba.</p>
+      <p><strong>Ami mindenkinek egyszerre megy ki, azt nem lehet visszaszedni.</strong> A társulatnak szóló bevezető levél szövegét mondatonként hagytam jóvá. A tesztek ma a jóváhagyott mondatokat őrzik.</p>
+    </div>
+
+    <div class="keret" style="margin-top:34px">
+      <h3>Hol tart</h3>
+      <p>Élesben, napi használatban. A kiküldési és értesítési lánc kész, a bevezetés folyamatban.</p>
+    </div>
+
+    <p class="kicsi halk" style="margin-top:34px">A Callboard a Radnóti Miklós Színház belső rendszere. A képernyőképek a demó példányról készültek: kitalált produkciók, kitalált nevek, a színház neve és logója nélkül. Valós adatot nem tartalmaznak.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="lab">
+  <div class="lab-belso">
+    <span><a href="index.html">Herczeg András</a> &middot; Budapest</span>
+    <span class="jobbra"><a href="en/callboard.html" hreflang="en">English</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

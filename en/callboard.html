@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Callboard - a production system in live use</title>
+<meta name="description" content="Case study of the Callboard production system: rehearsal schedule, call sheets, distribution and budget on one shared backend, in daily use.">
+<link rel="canonical" href="https://herczegx.com/en/callboard.html">
+<link rel="alternate" hreflang="hu" href="https://herczegx.com/callboard.html">
+<link rel="alternate" hreflang="en" href="https://herczegx.com/en/callboard.html">
+<meta property="og:title" content="Callboard - a production system in live use">
+<meta property="og:description" content="Rehearsal schedule, call sheets, distribution and budget on one shared backend.">
+<meta property="og:type" content="article">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../stilus.css">
+</head>
+<body>
+
+<header class="fej">
+  <div class="fej-belso">
+    <a class="nevjel" href="index.html">András Herczeg</a>
+    <nav class="menu">
+      <a href="index.html#about">About</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a class="itt" href="callboard.html">Callboard</a>
+      <a href="index.html#contact">Contact</a>
+      <span class="nyelv"><a href="../callboard.html" hreflang="hu">HU</a></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="nyito">
+  <div class="sav">
+    <h1>Callboard</h1>
+    <p class="alcim">A production system, in live use</p>
+    <p class="vezeto">What I could not find ready-made, I built. It now runs the theatre's daily operation.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sav">
+    <h2>The problem</h2>
+    <div class="szoveg">
+      <p>Production planning lived in spreadsheets and email. The rehearsal schedule went out as an attachment, and from that moment nobody knew who had opened it, who had seen the change, or which version was current. A call sheet that never arrives is not an administrative nuisance: it is a crew member who does not come to work.</p>
+    </div>
+
+    <h2 style="margin-top:44px">The solution</h2>
+    <div class="szoveg">
+      <p>I modelled the system in a spreadsheet first, because showing what I wanted was easier than explaining it. That became the web version, and today it is three applications on one shared backend.</p>
+    </div>
+
+    <div class="tablakeret" style="margin:22px 0 26px">
+      <table class="tabla">
+        <thead><tr><th>application</th><th>what it does</th></tr></thead>
+        <tbody>
+          <tr><td>Callboard</td><td>productions, rehearsal schedule, call sheets, distribution, budget</td></tr>
+          <tr><td>Callwork</td><td>weekly rosters and time records for the technical departments</td></tr>
+          <tr><td>CallMemo</td><td>management tasks, decisions, annual plan</td></tr>
+          <tr><td>viewer page</td><td>a shareable rehearsal schedule with no login</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="szoveg">
+      <p>Crew members install nothing. The personal link in their email opens on their phone, and if they add it to the home screen it behaves like an app from then on.</p>
+    </div>
+
+    <figure>
+      <img src="../kepek/callboard_01_produkciok.webp" alt="Production overview with three premieres, milestones and a timeline" width="1600" height="1002" loading="lazy">
+      <figcaption>Production overview from the demo instance. Invented productions, invented names.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sav">
+    <h2>What a spreadsheet cannot do</h2>
+    <div class="szoveg">
+      <p><strong>Distribution tells the truth.</strong> Nothing is marked as sent until the email actually goes out. There is no state where the system says delivered and reality says otherwise.</p>
+      <p><strong>Three questions, three answers.</strong> When it went out and for which day. Whether anything changed since. And exactly what changed, field by field, from what to what.</p>
+      <p><strong>People who never opened it are visible.</strong> By name. That is where the office picks up the phone. The machine does not judge: a human decides what counts as a substantive change.</p>
+      <p><strong>Every distribution is archived.</strong> A PDF, with the sender and the time it went out.</p>
+      <p><strong>Push notifications carry no content.</strong> Nothing from the rehearsal schedule passes through third-party servers.</p>
+    </div>
+
+    <figure>
+      <img src="../kepek/callboard_02_napi_tabla.webp" alt="One day of the daily rehearsal schedule: venue, time, call times, furniture and costume" width="1600" height="507" loading="lazy">
+      <figcaption>Daily rehearsal schedule. Call times by name, with furniture and costume as part of the daily sheet.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../kepek/callboard_04_koltsegkeret.webp" alt="Budget monitor: planned, spent, remaining, percentage used" width="1600" height="191" loading="lazy">
+      <figcaption>Season budget monitor. Invented figures.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../kepek/callboard_05_koltseg_produkcionkent.webp" alt="Costs per production: planned, actual, variance and percentage" width="1600" height="262" loading="lazy">
+      <figcaption>Per-production breakdown: planned, actual, variance. What is left over is visible.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sav">
+    <h2>Not built for one theatre</h2>
+    <div class="szoveg">
+      <p>Venues, roles, the address book, the technical departments and the rehearsal types are settings, not hard-coded values. What is tied to one house today is the branding: the name and the logo sit in the code, so another company swaps those instead of rewriting the logic. That is why the screenshots carry no theatre name and no logo: the system works the same way in any repertory house.</p>
+    </div>
+
+    <h2 style="margin-top:44px">Numbers</h2>
+    <div class="tenyek" style="margin:6px 0 24px">
+      <div class="teny"><span class="szam">89</span><span class="mi">test files</span></div>
+      <div class="teny"><span class="szam">3,314</span><span class="mi">automated checks</span></div>
+      <div class="teny"><span class="szam">0</span><span class="mi">failures</span></div>
+    </div>
+    <div class="szoveg">
+      <p>The tests run the real application, not mocked units. Framework-free JavaScript, cloud backend, platform-independent mobile use with no installation.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sav">
+    <h2>What building it taught me</h2>
+    <div class="szoveg">
+      <p><strong>The channel will always be unreliable.</strong> Email dies, notifications are not guaranteed, the phone stays silent. The answer is not a better channel, it is making the gap visible in time. The final channel is a person: the office calls.</p>
+      <p><strong>Whoever reports a fault is right.</strong> I sent back four findings after the first live test. All four were real, and the worst was silent data loss, not a display glitch.</p>
+      <p><strong>What goes out to everyone at once cannot be taken back.</strong> I approved the introductory letter to the company sentence by sentence. The tests now guard those approved sentences.</p>
+    </div>
+
+    <div class="keret" style="margin-top:34px">
+      <h3>Status</h3>
+      <p>Live, in daily use. The distribution and notification chain is finished; the rollout is in progress.</p>
+    </div>
+
+    <p class="kicsi halk" style="margin-top:34px">Callboard is an internal system of the Radnóti Miklós Theatre. The screenshots come from a demo instance: invented productions, invented names, no theatre name and no logo. They contain no real data.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="lab">
+  <div class="lab-belso">
+    <span><a href="index.html">András Herczeg</a> &middot; Budapest, Hungary</span>
+    <span class="jobbra"><a href="../callboard.html" hreflang="hu">Magyar</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
