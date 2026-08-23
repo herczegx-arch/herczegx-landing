@@ -17,6 +17,9 @@ h1{font-size:42px}
 h2{font-size:32px}
 h3{font-size:25px}
 h4{font-size:20px}
+/* fociim-kiemeles: gorgeteskor csak az eppen kozepen levo szekciocim teljes szinu, a tobbi halvany */
+.cim-halvany{color:color-mix(in srgb,var(--color-text) 38%,transparent);transition:color .5s ease}
+.cim-halvany.cim-fokuszban{color:var(--color-text)}
 p{margin:0 0 12px}
 a{color:var(--color-accent);text-underline-offset:3px;text-decoration:none}
 a:hover{color:var(--color-accent-700)}

@@ -60,6 +60,20 @@ function scrollSpyBekotese() {
   });
 }
 
+// A fociimek (szekcio-h2-k) halványak, es csak akkor teljes szinuek, amig a kepernyo
+// kozepso savaban vannak: gorgeteskor igy mindig az eppen olvasott cim van kiemelve.
+function cimKiemelesBekotese() {
+  const cimek = Array.from(document.querySelectorAll('section h2'));
+  if (cimek.length < 2) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e) => e.target.classList.toggle('cim-fokuszban', e.isIntersecting));
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  cimek.forEach((c) => {
+    c.classList.add('cim-halvany');
+    observer.observe(c);
+  });
+}
+
 // A grafot eredetileg egy szeles, teljes kepernyos felulethez terveztek: a csomopontok radiusza
 // fix pixelben van megadva. Egy ~900px-es kozponti oszlopban ez tulcsordulna a sajat dobozan
 // (a kartyak levagva/egymason latszananak), ezert a teljes csoportot arányosan lekicsinyitjuk,
@@ -236,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.csillagmezo').forEach(csillagokLetrehozasa);
   accordionBekotese();
   scrollSpyBekotese();
+  cimKiemelesBekotese();
   const grafGyoker = document.querySelector('.graf-terulet');
   if (grafGyoker && window.GRAF_CSOMOPONTOK) grafLetrehozasa(grafGyoker, window.GRAF_CSOMOPONTOK);
 });
