@@ -60,6 +60,43 @@ function scrollSpyBekotese() {
   });
 }
 
+// A fociimek (szekcio-h2-k) halványak, es csak akkor teljes szinuek, amig a kepernyo
+// kozepso savaban vannak: gorgeteskor igy mindig az eppen olvasott cim van kiemelve.
+function cimKiemelesBekotese() {
+  const cimek = Array.from(document.querySelectorAll('section h2'));
+  if (cimek.length < 2) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e) => e.target.classList.toggle('cim-fokuszban', e.isIntersecting));
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  cimek.forEach((c) => {
+    c.classList.add('cim-halvany');
+    observer.observe(c);
+  });
+}
+
+// A grafot eredetileg egy szeles, teljes kepernyos felulethez terveztek: a csomopontok radiusza
+// fix pixelben van megadva. Egy ~900px-es kozponti oszlopban ez tulcsordulna a sajat dobozan
+// (a kartyak levagva/egymason latszananak), ezert a teljes csoportot arányosan lekicsinyitjuk,
+// hogy barmilyen szelessegen beleferjen; a forgas- es huzas-fizika valtozatlan marad.
+function grafMeretezes(gyoker, grab, csomopontok) {
+  let felVizszintes = 0;
+  let felFuggoleges = 0;
+  csomopontok.forEach((n) => {
+    felVizszintes = Math.max(felVizszintes, n.radius);
+    felFuggoleges = Math.max(felFuggoleges, Math.abs(n.y) + 58);
+    (n.children || []).forEach((c) => {
+      felVizszintes = Math.max(felVizszintes, n.radius + c.dRadius);
+      felFuggoleges = Math.max(felFuggoleges, Math.abs(n.y + c.dY) + 58);
+    });
+  });
+  const szuksegesSzelesseg = (felVizszintes + 70) * 2;
+  const szuksegesMagassag = (felFuggoleges + 30) * 2;
+  const box = gyoker.getBoundingClientRect();
+  if (!box.width || !box.height) return;
+  const faktor = Math.min(1, box.width / szuksegesSzelesseg, box.height / szuksegesMagassag);
+  grab.style.transform = 'scale(' + faktor + ')';
+}
+
 // A harom dimenzios graf: automatikusan forog, egerrel/ujjal huzhato, minden csomopont valodi link.
 function grafLetrehozasa(gyoker, csomopontok) {
   const csoport = gyoker.querySelector('.graf-csoport');
@@ -199,6 +236,13 @@ function grafLetrehozasa(gyoker, csomopontok) {
     grab.classList.remove('ragad');
   });
 
+  grafMeretezes(gyoker, grab, csomopontok);
+  let atmeretezesIdozito;
+  window.addEventListener('resize', () => {
+    clearTimeout(atmeretezesIdozito);
+    atmeretezesIdozito = setTimeout(() => grafMeretezes(gyoker, grab, csomopontok), 150);
+  });
+
   requestAnimationFrame(lepes);
 }
 
@@ -206,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.csillagmezo').forEach(csillagokLetrehozasa);
   accordionBekotese();
   scrollSpyBekotese();
+  cimKiemelesBekotese();
   const grafGyoker = document.querySelector('.graf-terulet');
   if (grafGyoker && window.GRAF_CSOMOPONTOK) grafLetrehozasa(grafGyoker, window.GRAF_CSOMOPONTOK);
 });
