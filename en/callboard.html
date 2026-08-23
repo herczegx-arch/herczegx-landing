@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Callboard - production system | András Herczeg</title>
+<title>Callboard - operational production system | András Herczeg</title>
 <meta name="description" content="Callboard: rehearsal schedule, call sheets, distribution and budget in one place. András Herczeg's own production system, in live use at the Radnóti Miklós Theatre.">
 <link rel="canonical" href="https://herczegx.com/en/callboard.html">
 <link rel="alternate" hreflang="en" href="https://herczegx.com/en/callboard.html">
 <link rel="alternate" hreflang="hu" href="https://herczegx.com/callboard.html">
-<meta property="og:title" content="Callboard - production system">
+<meta property="og:title" content="Callboard - operational production system">
 <meta property="og:description" content="Rehearsal schedule, call sheets, distribution and budget in one place, in live use.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://herczegx.com/en/callboard.html">
@@ -37,30 +37,30 @@
   <header>
     <div class="lane" style="padding:56px 32px 40px;border-bottom:2px solid var(--color-divider)">
       <h1 style="font-size:48px;margin-bottom:8px">Callboard</h1>
-      <p style="font-size:18px;margin:0 0 14px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">A production system, in live use</p>
-      <p style="font-size:16px;max-width:560px">What I could not find ready-made, I built. It now runs the theatre's daily operation.</p>
+      <p style="font-size:18px;margin:0 0 14px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">An operational production system, in live use</p>
+      <p style="font-size:16px;max-width:560px">What I could not find ready-made, I built myself. Today it runs my oversight of the theatre's daily operation.</p>
     </div>
   </header>
 
   <section>
     <div class="lane" style="padding:48px 32px;border-bottom:2px solid var(--color-divider)">
       <h2>The problem</h2>
-      <p>Production planning lived in spreadsheets and email. The rehearsal schedule went out as an attachment, and from that moment nobody knew who had opened it, who had seen the change, or which version was current. A call sheet that never arrives is not an administrative nuisance: it is a crew member who does not come to work.</p>
+      <p>Production planning lived in spreadsheets and email. The rehearsal schedule went out as an attachment, and from that point nobody knew who had opened it, who had seen the change, or which version was current. A call sheet that never arrives is not an administrative nuisance: it is a crew member who does not come to work because of it.</p>
 
       <h2 style="margin-top:40px">The solution</h2>
-      <p>I modelled the system in a spreadsheet first, because showing what I wanted was easier than explaining it. That became the web version, and today it is three applications on one shared backend.</p>
+      <p>I modelled the system in a spreadsheet first, because it was closer to how I think, and showing what I wanted was easier than explaining it. That became the web version, and today it is three applications on one shared backend.</p>
 
       <table class="tabla" style="margin:22px 0 26px">
         <thead><tr><th>application</th><th>what it does</th></tr></thead>
         <tbody>
           <tr><td>Callboard</td><td>productions, rehearsal schedule, call sheets, distribution, budget</td></tr>
           <tr><td>Callwork</td><td>weekly rosters and time records for the technical departments</td></tr>
-          <tr><td>CallMemo</td><td>management tasks, decisions, annual plan</td></tr>
-          <tr><td>viewer page</td><td>a shareable rehearsal schedule with no login</td></tr>
+          <tr><td>CallMemo</td><td>management tasks, decisions, annual plan, overview, progress tracking, task structures</td></tr>
+          <tr><td>viewer page</td><td>a shareable rehearsal schedule with no login, with personal codes</td></tr>
         </tbody>
       </table>
 
-      <p>Crew members install nothing. The personal link in their email opens on their phone, and if they add it to the home screen it behaves like an app from then on.</p>
+      <p>Crew members install nothing. The personal link in their email opens on their phone, and once they add it to the home screen, from that moment it behaves like an app.</p>
 
       <figure style="margin-top:24px">
         <img src="../kepek/callboard_01_produkciok.webp" alt="Production overview with three premieres, milestones and a timeline" width="1600" height="1002" loading="lazy" style="width:100%">
@@ -72,10 +72,10 @@
   <section>
     <div class="lane" style="padding:48px 32px;border-bottom:2px solid var(--color-divider)">
       <h2 style="margin-bottom:18px">What a spreadsheet cannot do</h2>
-      <p><strong>Distribution tells the truth.</strong> Nothing is marked as sent until the email actually goes out. There is no state where the system says delivered and reality says otherwise.</p>
-      <p><strong>Three questions, three answers.</strong> When it went out and for which day. Whether anything changed since. And exactly what changed, field by field.</p>
-      <p><strong>People who never opened it are visible.</strong> By name. That is where the office picks up the phone. The machine does not judge: a human decides what counts as a substantive change.</p>
-      <p><strong>Every distribution is archived.</strong> A PDF, with the sender and the time it went out.</p>
+      <p><strong>Distribution is always verifiable, traceable.</strong> Nothing is marked as sent until the email actually goes out. There is no state where the system says it was received and reality says otherwise.</p>
+      <p><strong>Three questions, three answers.</strong> When it went out and for which day. Whether anything changed since. And exactly what changed, field by field, from what to what.</p>
+      <p><strong>Whoever has not opened it is visible too.</strong> By name. If needed, the office follows up. The machine does not judge what counts as a substantive change: a human always decides that.</p>
+      <p><strong>Every distribution is archived.</strong> A PDF, with the sender's name and the time it went out.</p>
       <p><strong>Push notifications carry no content.</strong> Nothing from the rehearsal schedule passes through third-party servers.</p>
 
       <figure style="margin-top:24px">
@@ -98,24 +98,21 @@
   <section>
     <div class="lane" style="padding:48px 32px;border-bottom:2px solid var(--color-divider)">
       <h2>Not built for one theatre</h2>
-      <p>Venues, roles, the address book, the technical departments and the rehearsal types are settings, not hard-coded values. What is tied to one house today is the branding: the name and the logo sit in the code, so another company swaps those instead of rewriting the logic. That is why the screenshots carry no theatre name and no logo.</p>
+      <p>Venues, roles, the address book, the technical departments and the rehearsal types are settings, changeable, not hard-coded values. What is tied to one theatre today is the branding: the name and the logo sit in the code, so for another company these are what get swapped, not the logic. That is why the screenshots carry no theatre name and no logo: the system works the same way in any repertory house.</p>
 
       <h2 style="margin-top:40px">Numbers</h2>
-      <div class="stat-sor" style="margin:20px 0 20px">
+      <div class="stat-sor" style="grid-template-columns:repeat(2,1fr);margin:20px 0 20px">
         <div><div class="szam" style="color:#c9a24b">89</div><div class="cimke">test files</div></div>
         <div><div class="szam" style="color:#c9a24b">3,314</div><div class="cimke">automated checks</div></div>
-        <div><div class="szam" style="color:#c9a24b">0</div><div class="cimke">failures</div></div>
       </div>
-      <p>The tests run the real application, not mocked units. Framework-free JavaScript, cloud backend, platform-independent mobile use with no installation.</p>
+      <p>The tests run the real application, platform-independent even for mobile use. Framework-free JavaScript, cloud backend, no installation required.</p>
     </div>
   </section>
 
   <section>
     <div class="lane" style="padding:48px 32px">
       <h2>What building it taught me</h2>
-      <p><strong>The channel will always be unreliable.</strong> Email dies, notifications are not guaranteed, the phone stays silent. The answer is not a better channel, it is making the gap visible in time. The final channel is a person: the office calls.</p>
-      <p><strong>Whoever reports a fault is right.</strong> I sent back four findings after the first live test. All four were real, and the worst was silent data loss, not a display glitch.</p>
-      <p><strong>What goes out to everyone at once cannot be taken back.</strong> I approved the introductory letter to the company sentence by sentence. The tests now guard those approved sentences.</p>
+      <p><strong>The channel will always be unreliable.</strong> Email dies, notification delivery is not guaranteed, the phone stays silent. The answer is not a better channel, it is making sure the gap becomes visible in time. The final channel is always a person: the office picks up the phone.</p>
 
       <div class="statusz-kartya">
         <p class="cim">Status</p>

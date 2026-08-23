@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Callboard - produkciós rendszer | Herczeg András</title>
+<title>Callboard - operatív produkciós rendszer | Herczeg András</title>
 <meta name="description" content="A Callboard: próbatábla, diszpó, kiküldés és költségkeret egy helyen. Herczeg András saját fejlesztésű produkciós rendszere, éles használatban a Radnóti Miklós Színházban.">
 <link rel="canonical" href="https://herczegx.com/callboard.html">
 <link rel="alternate" hreflang="hu" href="https://herczegx.com/callboard.html">
 <link rel="alternate" hreflang="en" href="https://herczegx.com/en/callboard.html">
-<meta property="og:title" content="Callboard - produkciós rendszer">
+<meta property="og:title" content="Callboard - operatív produkciós rendszer">
 <meta property="og:description" content="Próbatábla, diszpó, kiküldés és költségkeret egy helyen, éles használatban.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://herczegx.com/callboard.html">
@@ -37,30 +37,30 @@
   <header>
     <div class="lane" style="padding:56px 32px 40px;border-bottom:2px solid var(--color-divider)">
       <h1 style="font-size:48px;margin-bottom:8px">Callboard</h1>
-      <p style="font-size:18px;margin:0 0 14px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">Produkciós rendszer, éles használatban</p>
-      <p style="font-size:16px;max-width:560px">Amit nem találtam meg készen, megépítettem. Ma ez viszi a színház napi üzemét.</p>
+      <p style="font-size:18px;margin:0 0 14px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">Operatív produkciós rendszer, éles használatban</p>
+      <p style="font-size:16px;max-width:560px">Amit nem találtam meg készen, azt megépítettem magam. Ma ezzel viszem a napi színházi üzem felügyeletét.</p>
     </div>
   </header>
 
   <section>
     <div class="lane" style="padding:48px 32px;border-bottom:2px solid var(--color-divider)">
       <h2>A probléma</h2>
-      <p>A produkciós tervezés Excelben és e-mailben élt. A próbatábla kiment levélben, és onnantól senki nem tudta, ki nyitotta meg, ki látta a módosítást, melyik változat érvényes. Egy elmaradt diszpó nem adminisztrációs bosszúság: az egy stábtag, aki nem jön be dolgozni.</p>
+      <p>A produkciós tervezés Excelben és e-mailben élt. A próbatábla kiment levélben, és onnantól senki nem tudta, ki nyitotta meg, ki látta a módosítást, melyik változat érvényes. Egy elmaradt diszpó nem adminisztrációs bosszúság: az egy stábtag, aki emiatt nem jön be dolgozni.</p>
 
       <h2 style="margin-top:40px">A megoldás</h2>
-      <p>Először Excelben modelleztem le a rendszert, mert azzal könnyebb volt megmutatni, mit akarok, mint elmagyarázni. Abból lett a webes változat, ma pedig három alkalmazás egy közös háttéren.</p>
+      <p>Először Excelben modelleztem le a rendszert, mert az közelebb állt hozzám, és azzal könnyebb volt megmutatni, mit akarok, mint elmagyarázni. Abból lett aztán a webes változat, ma pedig három alkalmazás egy közös háttéren.</p>
 
       <table class="tabla" style="margin:22px 0 26px">
         <thead><tr><th>alkalmazás</th><th>mire jó</th></tr></thead>
         <tbody>
-          <tr><td>Callboard</td><td>produkciók, próbatábla, diszpó, kiküldés, költségkeret</td></tr>
+          <tr><td>Callboard</td><td>produkciók, próbatábla, diszpozíció, kiküldés, költségkeret</td></tr>
           <tr><td>Callwork</td><td>a műszaki tárak heti beosztása és munkaidő-nyilvántartása</td></tr>
-          <tr><td>CallMemo</td><td>vezetői teendők, döntések, éves terv</td></tr>
-          <tr><td>néző oldal</td><td>belépés nélküli, megosztható próbatábla a stábnak</td></tr>
+          <tr><td>CallMemo</td><td>vezetői teendők, döntések, éves terv, áttekintő, előrehaladás követése, feladatstruktúrák</td></tr>
+          <tr><td>néző oldal</td><td>belépés nélküli, megosztható próbatábla a stábnak, személyes kódokkal</td></tr>
         </tbody>
       </table>
 
-      <p>A stábtag semmit nem telepít. A levélben kapott személyes linkje megnyílik a telefonján, és ha kiteszi a kezdőképernyőre, onnantól úgy viselkedik, mint egy alkalmazás.</p>
+      <p>A stábtag semmit nem telepít. A levélben kapott személyes linkje megnyílik a telefonján, és ha kiteszi a kezdőképernyőjére, attól a pillanattól úgy viselkedik, mint egy alkalmazás.</p>
 
       <figure style="margin-top:24px">
         <img src="kepek/callboard_01_produkciok.webp" alt="Produkciós áttekintő: három bemutató, mérföldkövek és idővonal" width="1600" height="1002" loading="lazy" style="width:100%">
@@ -72,9 +72,9 @@
   <section>
     <div class="lane" style="padding:48px 32px;border-bottom:2px solid var(--color-divider)">
       <h2 style="margin-bottom:18px">Mit tud, amit egy táblázat nem</h2>
-      <p><strong>A kiküldés igazat mond.</strong> Csak a tényleges levélküldés után jelöl bármit kiküldöttnek. Nincs olyan, hogy a rendszer szerint megkapta, a valóságban nem.</p>
+      <p><strong>A kiküldés mindig ellenőrizhető, követhető.</strong> Csak a tényleges levélküldés után jelöl bármit kiküldöttnek. Nincs olyan, hogy a rendszer szerint megkapta, a valóságban azonban nem.</p>
       <p><strong>Három kérdés, három válasz.</strong> Mikor és melyik napra ment ki. Változott-e azóta. És pontosan mi változott, mezőnként, miből mi lett.</p>
-      <p><strong>Aki nem nyitotta meg, az látszik.</strong> Névvel. Innen a titkárság telefonál. A gép nem minősít: hogy mi érdemi változás, azt ember dönti el.</p>
+      <p><strong>Aki nem nyitotta meg, az is látszik.</strong> Névvel. Ha kell, a titkárság újra értesít. Nem a gép minősíti, hogy mi érdemi változás, azt mindig az ember dönti el.</p>
       <p><strong>Minden kiküldés archívumba megy.</strong> PDF, a kiadó nevével és a kiküldés idejével.</p>
       <p><strong>Értesítés a telefonra, tartalom nélkül.</strong> Ami a próbatáblán van, az nem megy át idegen szolgáltatók szerverein.</p>
 
@@ -98,24 +98,21 @@
   <section>
     <div class="lane" style="padding:48px 32px;border-bottom:2px solid var(--color-divider)">
       <h2>Nem egy színházra szabva</h2>
-      <p>A helyszínek, a szerepkörök, a névtár, a műszaki tárak és a próbatípusok beállítások, nem beégetett értékek. Ami ma egy házhoz kötött, az az arculat: a név és a logó a kódban áll, tehát másik társulatnál ezt kell kicserélni, nem a logikát átírni. A képeken ezért nincs színházi név és logó.</p>
+      <p>A helyszínek, a szerepkörök, a névtár, a műszaki tárak és a próbatípusok beállítások, változtathatók, nem beégetett értékek. Ami ma egy adott színházhoz kötött, az az arculat: a név és a logó a kódban áll, tehát másik társulat esetén ezt kell kicserélni, nem szükséges a logikát átírni. A képeken ezért nincs színházi név és logó, a rendszer működése bármelyik repertoárszínházban ugyanez.</p>
 
       <h2 style="margin-top:40px">Számok</h2>
-      <div class="stat-sor" style="margin:20px 0 20px">
+      <div class="stat-sor" style="grid-template-columns:repeat(2,1fr);margin:20px 0 20px">
         <div><div class="szam" style="color:#c9a24b">89</div><div class="cimke">tesztfájl</div></div>
         <div><div class="szam" style="color:#c9a24b">3314</div><div class="cimke">automatikus ellenőrzés</div></div>
-        <div><div class="szam" style="color:#c9a24b">0</div><div class="cimke">hiba</div></div>
       </div>
-      <p>A tesztek a valódi alkalmazást futtatják, nem kimockolt egységeket. Keretrendszer nélküli JavaScript, felhő-háttér, telepítés nélküli, platformfüggetlen mobilhasználat.</p>
+      <p>A tesztek a valódi alkalmazást futtatják, platformfüggetlen módon, akár mobilhasználattal is. Keretrendszer nélküli JavaScript, felhő-háttér, telepítés nélküli.</p>
     </div>
   </section>
 
   <section>
     <div class="lane" style="padding:48px 32px">
       <h2>Amit a fejlesztés tanított</h2>
-      <p><strong>A csatorna mindig esetleges lesz.</strong> Az e-mail elhal, az értesítés kézbesítése nem garantált, a telefon néma. Nem jobb csatornát kell keresni, hanem azt elérni, hogy a hiány időben látszódjon. A végső csatorna az ember: a titkárság felveszi a telefont.</p>
-      <p><strong>Aki hibát jelez, annak igaza van.</strong> Az első éles próbán négy dolgot jeleztem vissza a fejlesztésnek. Mind a négy valós volt, és a legsúlyosabb egy csendes adatvesztés, nem felületi hiba.</p>
-      <p><strong>Ami mindenkinek egyszerre megy ki, azt nem lehet visszaszedni.</strong> A társulatnak szóló bevezető levél szövegét mondatonként hagytam jóvá. A tesztek ma a jóváhagyott mondatokat őrzik.</p>
+      <p><strong>A csatorna mindig esetleges lesz.</strong> Az e-mail elhal, az értesítés kézbesítése nem garantált, a telefon néma. Nem jobb csatornát kell keresni, hanem azt elérni, hogy a hiány időben feltűnjön, látszódjon. A végső csatorna mindig az ember: a titkárság felveszi a telefont.</p>
 
       <div class="statusz-kartya">
         <p class="cim">Hol tart</p>
