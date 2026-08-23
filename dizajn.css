@@ -17,9 +17,20 @@ h1{font-size:42px}
 h2{font-size:32px}
 h3{font-size:25px}
 h4{font-size:20px}
-/* fociim-kiemeles: gorgeteskor csak az eppen kozepen levo szekciocim teljes szinu, a tobbi halvany */
-.cim-halvany{color:color-mix(in srgb,var(--color-text) 38%,transparent);transition:color .5s ease}
-.cim-halvany.cim-fokuszban{color:var(--color-text)}
+/* fociim-kiemeles: gorgeteskor csak az eppen kozepen levo szekciocim teljes szinu, a tobbi halvany.
+   A ket szin egy 200%-os hatterkent csuszik: igy a valtas balrol jobbra soporve jelenik meg
+   lefele gorgetve (fokuszba kerules), es pontosan visszafele felfele gorgetve (fokuszvesztes),
+   mert ugyanaz az atmenet jatszodik le megforditva. */
+.cim-halvany{
+  background-image:linear-gradient(90deg, var(--color-text) 0%, var(--color-text) 50%, color-mix(in srgb,var(--color-text) 38%,transparent) 50%, color-mix(in srgb,var(--color-text) 38%,transparent) 100%);
+  background-size:200% 100%;
+  background-position:100% 0;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  transition:background-position .6s ease;
+}
+.cim-halvany.cim-fokuszban{background-position:0 0}
 p{margin:0 0 12px}
 a{color:var(--color-accent);text-underline-offset:3px;text-decoration:none}
 a:hover{color:var(--color-accent-700)}
@@ -58,7 +69,7 @@ figcaption{font-size:11px;margin-top:4px;color:color-mix(in srgb,var(--color-tex
 .hero-alcim{font-size:19px;margin:0 0 16px;color:color-mix(in srgb,var(--color-text) 65%,transparent)}
 .hero-bio{font-size:16px;max-width:460px;margin:0 0 28px}
 .hero-gombok{display:flex;gap:12px}
-.graf-terulet{position:relative;width:100%;height:380px;overflow:hidden}
+.graf-terulet{position:relative;width:100%;height:380px}
 .graf-terulet .grab{position:absolute;inset:0;z-index:1;perspective:1300px;cursor:grab;user-select:none;touch-action:none}
 .graf-terulet .grab.ragad{cursor:grabbing}
 .graf-csoport{position:absolute;inset:0;transform-style:preserve-3d}

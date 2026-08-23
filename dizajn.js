@@ -74,30 +74,9 @@ function cimKiemelesBekotese() {
   });
 }
 
-// A grafot eredetileg egy szeles, teljes kepernyos felulethez terveztek: a csomopontok radiusza
-// fix pixelben van megadva. Egy ~900px-es kozponti oszlopban ez tulcsordulna a sajat dobozan
-// (a kartyak levagva/egymason latszananak), ezert a teljes csoportot arányosan lekicsinyitjuk,
-// hogy barmilyen szelessegen beleferjen; a forgas- es huzas-fizika valtozatlan marad.
-function grafMeretezes(gyoker, grab, csomopontok) {
-  let felVizszintes = 0;
-  let felFuggoleges = 0;
-  csomopontok.forEach((n) => {
-    felVizszintes = Math.max(felVizszintes, n.radius);
-    felFuggoleges = Math.max(felFuggoleges, Math.abs(n.y) + 58);
-    (n.children || []).forEach((c) => {
-      felVizszintes = Math.max(felVizszintes, n.radius + c.dRadius);
-      felFuggoleges = Math.max(felFuggoleges, Math.abs(n.y + c.dY) + 58);
-    });
-  });
-  const szuksegesSzelesseg = (felVizszintes + 70) * 2;
-  const szuksegesMagassag = (felFuggoleges + 30) * 2;
-  const box = gyoker.getBoundingClientRect();
-  if (!box.width || !box.height) return;
-  const faktor = Math.min(1, box.width / szuksegesSzelesseg, box.height / szuksegesMagassag);
-  grab.style.transform = 'scale(' + faktor + ')';
-}
-
 // A harom dimenzios graf: automatikusan forog, egerrel/ujjal huzhato, minden csomopont valodi link.
+// A doboznak nincs kerete (nincs overflow:hidden): a kartyak a sajat eredeti meretukben jelennek
+// meg, es ha egy csomopont a bal oldali szoveg fole log, az szandekos, nem hiba.
 function grafLetrehozasa(gyoker, csomopontok) {
   const csoport = gyoker.querySelector('.graf-csoport');
   const grab = gyoker.querySelector('.grab');
@@ -234,13 +213,6 @@ function grafLetrehozasa(gyoker, csomopontok) {
     hovering = false;
     dragging = false;
     grab.classList.remove('ragad');
-  });
-
-  grafMeretezes(gyoker, grab, csomopontok);
-  let atmeretezesIdozito;
-  window.addEventListener('resize', () => {
-    clearTimeout(atmeretezesIdozito);
-    atmeretezesIdozito = setTimeout(() => grafMeretezes(gyoker, grab, csomopontok), 150);
   });
 
   requestAnimationFrame(lepes);
