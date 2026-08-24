@@ -177,8 +177,11 @@ function grafLetrehozasa(gyoker, csomopontok) {
     requestAnimationFrame(lepes);
   }
 
+  // Szandekosan NINCS setPointerCapture: az a click esemenyt is a grab-ra iranyitana at
+  // (sosem a kartyara), igy egy sima kattintas soha nem navigalna. Ehelyett a mozgast es az
+  // elengedest az window-on figyeljuk, hogy a huzas akkor is folytatodjon, ha a mutato kikerul
+  // a doboz fole; igy a click a tenyleges kartyan sul el, a wasDrag pedig csak akkor tiltja le.
   grab.addEventListener('pointerdown', (e) => {
-    grab.setPointerCapture(e.pointerId);
     wasDrag = false;
     startX = e.clientX;
     startY = e.clientY;
@@ -188,7 +191,7 @@ function grafLetrehozasa(gyoker, csomopontok) {
     grab.classList.add('ragad');
   });
 
-  grab.addEventListener('pointermove', (e) => {
+  window.addEventListener('pointermove', (e) => {
     if (!dragging) return;
     const dx = e.clientX - lastX;
     const dy = e.clientY - lastY;
@@ -199,21 +202,14 @@ function grafLetrehozasa(gyoker, csomopontok) {
     lastY = e.clientY;
   });
 
-  const felenged = (e) => {
-    if (e && e.pointerId != null) {
-      try { grab.releasePointerCapture(e.pointerId); } catch (err) { /* mar elengedve */ }
-    }
+  const felenged = () => {
     dragging = false;
     grab.classList.remove('ragad');
   };
-  grab.addEventListener('pointerup', felenged);
-  grab.addEventListener('pointercancel', felenged);
+  window.addEventListener('pointerup', felenged);
+  window.addEventListener('pointercancel', felenged);
   grab.addEventListener('pointerenter', () => { hovering = true; });
-  grab.addEventListener('pointerleave', () => {
-    hovering = false;
-    dragging = false;
-    grab.classList.remove('ragad');
-  });
+  grab.addEventListener('pointerleave', () => { hovering = false; });
 
   requestAnimationFrame(lepes);
 }
