@@ -124,9 +124,9 @@ figcaption{font-size:11px;margin-top:4px;color:color-mix(in srgb,var(--color-tex
 .tabla{width:100%;border-collapse:collapse;font-size:14px}
 .tabla th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 60%,transparent);padding:8px;border-bottom:2px solid var(--color-divider)}
 .tabla td{padding:8px;border-bottom:1px solid var(--color-divider)}
-.statusz-kartya{margin-top:32px;border-left:2px solid var(--color-accent);background:rgba(243,242,242,.9);padding:12px 16px}
-.statusz-kartya .cim{font-size:16px;color:#201e1d;margin:0 0 6px}
-.statusz-kartya .torzs{font-size:14px;color:#201e1d;margin:0}
+.statusz-kartya{margin-top:32px;border-left:2px solid var(--color-accent);background:color-mix(in srgb,var(--color-accent) 10%,transparent);padding:12px 16px}
+.statusz-kartya .cim{font-size:16px;color:var(--color-accent);margin:0 0 6px}
+.statusz-kartya .torzs{font-size:14px;color:var(--color-text);margin:0}
 figure img{border:1px solid var(--color-divider)}
 
 /* keskeny kepernyo: a fenti elrendezes egy oszlopba rendezodik, semmi nem lóg ki oldalra */
