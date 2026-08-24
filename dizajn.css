@@ -34,7 +34,7 @@ h4{font-size:20px}
 p{margin:0 0 12px}
 a{color:var(--color-accent);text-underline-offset:3px;text-decoration:none}
 a:hover{color:var(--color-accent-700)}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 figure{margin:0}
 figcaption{font-size:11px;margin-top:4px;color:color-mix(in srgb,var(--color-text) 55%,transparent)}
 .lane{max-width:900px;margin:0 auto;padding:0 32px}
