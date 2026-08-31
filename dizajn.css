@@ -48,7 +48,14 @@ figcaption{font-size:11px;margin-top:4px;color:color-mix(in srgb,var(--color-tex
 .shooting-star{position:absolute;top:0;left:0;width:110px;height:2px;background:linear-gradient(90deg,rgba(255,246,224,0) 0%,rgba(255,246,224,.95) 100%);border-radius:2px;opacity:0;animation:shoot 9s linear infinite;pointer-events:none;z-index:0}
 
 /* navigacio */
-.nav{position:sticky;top:0;z-index:20;background:#f3f2f2;border-bottom:2px solid var(--color-divider);display:flex;align-items:center;gap:32px;padding:16px 32px}
+/* Uveges (glassmorphic) sav: a mogotte gorgetett csillagos hatter halvanyan
+   atsejlik a blur alatt, ahelyett hogy a sav egy sik, idegen feher csik
+   lenne a kozmikus temaban. Az alfa (0.82) magas marad, mert a savon sotet
+   szoveg ul, azt a kontrasztot nem szabad felaldozni a hatasert. */
+.nav{position:sticky;top:0;z-index:20;background:rgba(243,242,242,.82);
+ background-image:linear-gradient(180deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,.05) 100%);
+ backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);
+ border-bottom:2px solid var(--color-divider);display:flex;align-items:center;gap:32px;padding:16px 32px}
 .nav-brand{font-family:var(--font-heading);font-weight:800;font-size:18px;color:#201e1d;margin-right:auto}
 .nav a.nav-link,.nav a.nav-callboard{color:#201e1d;font-size:14px}
 .nav a.nav-link.aktiv,.nav a.nav-callboard.aktiv{color:var(--color-accent)}
@@ -56,10 +63,22 @@ figcaption{font-size:11px;margin-top:4px;color:color-mix(in srgb,var(--color-tex
 
 /* gombok */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-family:var(--font-heading);font-weight:800;font-size:14px;line-height:1.2;padding:9px 16px;border-radius:10px;border:1px solid transparent}
-.btn-elsodleges{background:#c9a24b;color:#201e1d;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+/* Az elsodleges gomb alapszine opak marad (sotet szoveg aranyszinen), csak
+   egy feny-fatyol es finom uveges arnyalat kerul ra - ugyanaz a kompromisszum,
+   mint a Callboard marka-gombjainal: a kontraszt nem aldozhato fel a hatasert. */
+.btn-elsodleges{background:#c9a24b;color:#201e1d;
+ background-image:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.05) 55%,rgba(255,255,255,0) 100%);
+ backdrop-filter:blur(8px) saturate(160%);-webkit-backdrop-filter:blur(8px) saturate(160%);
+ box-shadow:0 6px 20px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.55)}
 .btn-elsodleges:hover{background:#b98f3d;color:#201e1d}
-.btn-masodlagos{background:rgba(243,242,242,.85);color:#201e1d;border-color:rgba(243,242,242,.9);box-shadow:0 6px 20px rgba(0,0,0,.25)}
-.btn-masodlagos:hover{background:rgba(243,242,242,.65);color:#201e1d}
+/* A masodlagos gomb valodi uveg: attetszo alapon blur+feny. Hover kozben is
+   attetszo marad (nem valik opakka), kulonben a backdrop-filternek nincs mit
+   elmosnia es a finom melyseg szemre eltunik. */
+.btn-masodlagos{background:rgba(243,242,242,.55);color:#201e1d;border-color:rgba(255,255,255,.5);
+ background-image:linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.12) 55%,rgba(255,255,255,0) 100%);
+ backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);
+ box-shadow:0 6px 20px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.7)}
+.btn-masodlagos:hover{background:rgba(243,242,242,.4);color:#201e1d}
 
 /* hero es 3D graf */
 .hero .lane{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end;padding:64px 32px 0;border-bottom:2px solid var(--color-divider)}
@@ -74,12 +93,23 @@ figcaption{font-size:11px;margin-top:4px;color:color-mix(in srgb,var(--color-tex
 .graf-terulet .grab.ragad{cursor:grabbing}
 .graf-csoport{position:absolute;inset:0;transform-style:preserve-3d}
 .graf-vonal{position:absolute;top:50%;left:50%;height:1px;background:var(--color-divider);transform-origin:0 50%}
-.graf-kartya{position:absolute;top:50%;left:50%;text-align:left;display:flex;flex-direction:column;justify-content:center;background:var(--color-bg);border:2px solid var(--color-divider);border-radius:10px;padding:8px 12px;cursor:pointer;width:112px;height:48px}
-.graf-kartya:hover{border-color:#c9a24b;box-shadow:0 0 0 2px rgba(201,162,75,.45);background:#fff}
+/* A grafkartyak a csillagos hatter felett lebegnek - ez a legjobb hely az
+   uveghatasnak: a blur alatt a mogottes csillagok/gradiens halvanyan
+   atsejlenek, a kartya tenyleg "lebegonek" hat, nem csak stilizaltnak. */
+.graf-kartya{position:absolute;top:50%;left:50%;text-align:left;display:flex;flex-direction:column;justify-content:center;background:rgba(243,242,242,.55);
+ background-image:linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.1) 55%,rgba(255,255,255,0) 100%);
+ backdrop-filter:blur(10px) saturate(150%);-webkit-backdrop-filter:blur(10px) saturate(150%);
+ border:1px solid rgba(255,255,255,.45);border-radius:10px;padding:8px 12px;cursor:pointer;width:112px;height:48px;
+ box-shadow:0 8px 24px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.65)}
+.graf-kartya:hover{border-color:#c9a24b;box-shadow:0 0 0 2px rgba(201,162,75,.45),0 8px 24px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.65);background:rgba(255,255,255,.8)}
 .graf-kartya .szam{font-family:var(--font-heading);font-weight:800;font-size:9px;color:var(--color-accent);display:block;margin-bottom:2px;text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .graf-kartya .cimke{font-family:var(--font-heading);font-weight:700;font-size:10px;color:#201e1d;white-space:nowrap}
-.graf-gyerek{position:absolute;top:50%;left:50%;text-align:left;display:flex;align-items:center;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;padding:0 8px;cursor:pointer;width:74px;height:40px}
-.graf-gyerek:hover{border-color:#c9a24b;box-shadow:0 0 0 2px rgba(201,162,75,.45);background:#fff}
+.graf-gyerek{position:absolute;top:50%;left:50%;text-align:left;display:flex;align-items:center;background:rgba(243,242,242,.5);
+ background-image:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 100%);
+ backdrop-filter:blur(10px) saturate(150%);-webkit-backdrop-filter:blur(10px) saturate(150%);
+ border:1px solid rgba(255,255,255,.4);border-radius:10px;padding:0 8px;cursor:pointer;width:74px;height:40px;
+ box-shadow:0 6px 18px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.6)}
+.graf-gyerek:hover{border-color:#c9a24b;box-shadow:0 0 0 2px rgba(201,162,75,.45),0 6px 18px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.6);background:rgba(255,255,255,.75)}
 .graf-gyerek .cimke{font-family:var(--font-heading);font-weight:600;font-size:11px;color:#201e1d}
 .graf-kozep{position:absolute;top:50%;left:50%;width:14px;height:14px;background:radial-gradient(circle,#fff8e6 0%,#c9a24b 55%,#c9a24b 100%);clip-path:polygon(50% 0%,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0% 50%,39% 39%);transform:translate(-50%,-50%);animation:twinkle 4s ease-in-out infinite;box-shadow:0 0 10px 3px rgba(201,162,75,.9)}
 
@@ -124,7 +154,10 @@ figcaption{font-size:11px;margin-top:4px;color:color-mix(in srgb,var(--color-tex
 .tabla{width:100%;border-collapse:collapse;font-size:14px}
 .tabla th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 60%,transparent);padding:8px;border-bottom:2px solid var(--color-divider)}
 .tabla td{padding:8px;border-bottom:1px solid var(--color-divider)}
-.statusz-kartya{margin-top:32px;border-left:2px solid var(--color-accent);background:color-mix(in srgb,var(--color-accent) 10%,transparent);padding:12px 16px}
+.statusz-kartya{margin-top:32px;border-left:2px solid var(--color-accent);background:color-mix(in srgb,var(--color-accent) 10%,transparent);
+ background-image:linear-gradient(180deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,0) 60%);
+ backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.15);padding:12px 16px}
 .statusz-kartya .cim{font-size:16px;color:var(--color-accent);margin:0 0 6px}
 .statusz-kartya .torzs{font-size:14px;color:var(--color-text);margin:0}
 figure img{border:1px solid var(--color-divider)}
